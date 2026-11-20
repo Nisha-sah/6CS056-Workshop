@@ -3,4 +3,5 @@
 onsubmit="return confirm('Are you sure you want to delete this record?')">
 @csrf
 @method('DELETE')
-<butt
+<button type="submit" class="btn">Delete</button>
+</form>

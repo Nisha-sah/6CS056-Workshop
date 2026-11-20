@@ -1,6 +1,4 @@
-@extends('layouts.app')
-@section('title', 'Courses')
-@section('content')
+<x-layouts.app title="Courses">
 <h1>Courses</h1>
 <a href="{{ route('courses.create') }}" class="btn">Create Course</a>
 <table>
@@ -37,4 +35,4 @@
 @endforelse
 </tbody>
 </table>
-@endsection
+</x-layouts.app>

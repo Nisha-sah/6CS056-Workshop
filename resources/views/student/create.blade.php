@@ -7,7 +7,7 @@
 
         @csrf
 
-        <x-students.form :student="new \App\Models\Student()" />
+        @include('student._form', ['student' => new \App\Models\Student()])
 
         <button type="submit" class="btn">
             Create Student
