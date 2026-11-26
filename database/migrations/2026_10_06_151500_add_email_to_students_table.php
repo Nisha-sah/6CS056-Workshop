@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -6,24 +7,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->string('email')->nullable()->unique();
-        });
+        if (!Schema::hasColumn('students', 'email')) {
+            Schema::table('students', function (Blueprint $table) {
+                $table->string('email')->nullable()->unique();
+            });
+        }
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->dropUnique(['email']);
-            $table->dropColumn('email');
-        });
+        if (Schema::hasColumn('students', 'email')) {
+            Schema::table('students', function (Blueprint $table) {
+                $table->dropUnique(['email']);
+                $table->dropColumn('email');
+            });
+        }
     }
 };
