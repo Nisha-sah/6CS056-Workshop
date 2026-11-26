@@ -1,13 +1,14 @@
 
 <?php
 
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
 
+// Home page
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('students', StudentController::class);
+// Course routes
 Route::resource('courses', CourseController::class);
+
